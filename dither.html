@@ -1,0 +1,33 @@
+<head>
+    
+    <script type="text/javascript" src="pixel.js"></script>
+    <script type="text/javascript" src="palette.js"></script>
+
+    </head>
+    <body>
+      <canvas id="myCanvas" width="1050" height="600" style="padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; background-color:FFFFF; "></canvas>
+      <script>
+
+
+
+        function animate(canvas, context,startTime) {
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+
+
+
+            requestAnimationFrame(function() {
+              animate(canvas, context, startTime);
+            });
+        }
+
+
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+
+        var startTime = (new Date()).getTime();
+        animate(canvas, context,startTime);
+      </script>
+</body>
