@@ -1,6 +1,6 @@
 var palette = [
-	new pixel(0,0,0),
-	new pixel(255,255,255)
+	new pixel(0,0,0), 		// White
+	new pixel(255,255,255)  // Black
 	];
 
 

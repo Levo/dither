@@ -56,7 +56,7 @@ pixel.prototype.sub = function (p) {
 	this.c.r -= p.c.r;
 	this.c.g -= p.c.g;
 	this.c.b -= p.c.b;
-
+	
 	this.checkRGB();
 
 }

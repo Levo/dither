@@ -10,24 +10,102 @@
 
 
 
-        function animate(canvas, context,startTime) {
+        // function animate(canvas, context,startTime) {
 
-            context.clearRect(0, 0, canvas.width, canvas.height);
+        //     context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //     context.drawImage(image, 0, 0);
+        //     var imageData = context.getImageData(0, 0, 450, 450);
+        //     var data = imageData.data;
+
+        //     var imageWidth  = image.width;
+        //     var imageHeight = image.height;
+
+
+        //     for(var y = 0; y < imageHeight; y++) {
+        //       for(var x = 0; x < imageWidth; x++) {
+        //         var red = data[((imageWidth * y) + x) * 4];
+        //         var green = data[((imageWidth * y) + x) * 4 + 1];
+        //         var blue = data[((imageWidth * y) + x) * 4 + 2];
+        //         var alpha = data[((imageWidth * y) + x) * 4 + 3];
+              
+        //         var oldPixel = new pixel(red, green, blue);
+
+        //         var newPixel = find_closest_palette_color(oldPixel);
+
+        //         data[((imageWidth * y) + x) * 4]     = newPixel.c.r;
+        //         data[((imageWidth * y) + x) * 4 + 1] = newPixel.c.g;
+        //         data[((imageWidth * y) + x) * 4 + 2] = newPixel.c.b;
+
+
+        //         var errorPixel = oldPixel.sub(newPixel);
+
+
+        //          if(!logged)
+        //          {
+        //           console.log();
+        //           logged = true;
+        //          }
+
+
+        //         var y_;
+        //         var x_;
+        //         var p_ = new pixel();
+        //         var r_;
+        //         var g_;
+        //         var b_;
+
+        //         if(x + 1 < imageWidth){
+
+        //             x_ = x + 1;
+        //             y_ = y;
+
+        //             r_ = data[((imageWidth * y_) + x_) * 4]      
+        //             g_ = data[((imageWidth * y_) + x_) * 4 + 1]  
+        //             b_ = data[((imageWidth * y_) + x_) * 4 + 2]  
+
+        //             p_.c.r = r_;
+        //             p_.c.g = g_;
+        //             p_.c.b = b_;
+
+        //             // p_.add();
+
+        //             data[((imageWidth * y_) + x_) * 4]      = p_.c.r;
+        //             data[((imageWidth * y_) + x_) * 4 + 1]  = p_.c.g;
+        //             data[((imageWidth * y_) + x_) * 4 + 2]  = p_.c.b;
+
+        //         }
 
 
 
+        //       }
+        //     }
+        //     context.putImageData(imageData, 0, 0 );
 
 
-            requestAnimationFrame(function() {
-              animate(canvas, context, startTime);
-            });
-        }
+        //     requestAnimationFrame(function() {
+        //       animate(canvas, context, startTime);
+        //     });
+        // }
 
+
+        var image = new Image();
+        image.src = "chrome.png";
+
+        var logged = false;
+
+
+        var p = new pixel(255,255,255);
+        var newPixel = find_closest_palette_color(p);
+
+        console.log(newPixel.c)
+        p.sub(newPixel);
+        
 
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
 
         var startTime = (new Date()).getTime();
-        animate(canvas, context,startTime);
+        // animate(canvas, context,startTime);
       </script>
 </body>
