@@ -1,4 +1,3 @@
-
 function palette (){
 
 	this.p = [
@@ -101,7 +100,21 @@ palette.prototype.addColor = function(R,G,B){
     animate(canvas, context, startTime);
 }
 
+function pickPalette(paletteName){
 
+	var paletteString = paletteName.value.toString();
+
+	if(paletteString === "BW"){
+		palette.setPaletteBW();
+	}else if(paletteString === "BWRGB"){
+		palette.setPaletteBWRGB();
+	}else if(paletteString === "RGB"){
+		palette.setPaletteRGB();
+	}else if(paletteString === "3bit"){
+		palette.setPalette3bit();
+	}
+    animate(canvas, context, startTime);	
+}
 
 
 
