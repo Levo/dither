@@ -71,6 +71,34 @@ palette.prototype.setPalette3bit = function(){
 }
 
 
+palette.prototype.setPaletteFlat = function(){
+	this.p = [
+		new pixel(26, 188, 156),
+		new pixel(22, 160, 133),
+		new pixel(46, 204, 113),
+		new pixel(39, 174, 96),
+		new pixel(52, 152, 219),
+		new pixel(41, 128, 185),
+		new pixel(155, 89, 182),
+		new pixel(142, 68, 173),
+		new pixel(52, 73, 94),
+		new pixel(44, 62, 80),
+		new pixel(241, 196, 15),
+		new pixel(243, 156, 18),
+		new pixel(230, 126, 34),
+		new pixel(211, 84, 0),
+		new pixel(231, 76, 60),
+		new pixel(192, 57, 43),
+		new pixel(236, 240, 241),
+		new pixel(189, 195, 199),
+		new pixel(149, 165, 166), 
+		new pixel(127, 140, 141)
+
+	];
+    animate(canvas, context, startTime);
+}
+
+
 palette.prototype.addColor = function(R,G,B){
 	var r = R;
 	var g = G;
@@ -112,6 +140,8 @@ function pickPalette(paletteName){
 		palette.setPaletteRGB();
 	}else if(paletteString === "3bit"){
 		palette.setPalette3bit();
+	}else if(paletteString === "Flat"){
+		palette.setPaletteFlat();
 	}
     animate(canvas, context, startTime);	
 }
