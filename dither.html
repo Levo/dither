@@ -14,13 +14,14 @@
 
             context.clearRect(0, 0, canvas.width, canvas.height);
 
+            var imageWidth  = image.width*2;
+            var imageHeight = image.height*2;
+
+            canvas.width = imageWidth;
+            canvas.height = imageHeight;
             context.drawImage(image, 0, 0);
-            var imageData = context.getImageData(0, 0, 640, 640);
+            var imageData = context.getImageData(0, 0, imageWidth, imageHeight);
             var data = imageData.data;
-
-            var imageWidth  = image.width;
-            var imageHeight = image.height;
-
 
             for(var y = 0; y < imageHeight; y++) {
               for(var x = 0; x < imageWidth; x++) {
@@ -31,7 +32,7 @@
               
                 var oldPixel = new pixel(red, green, blue);
 
-                var newPixel = find_closest_palette_color(oldPixel);
+                var newPixel = palette.find_closest_palette_color(oldPixel);
 
                 data[((imageWidth * y) + x) * 4]     = newPixel.c.r;
                 data[((imageWidth * y) + x) * 4 + 1] = newPixel.c.g;
@@ -118,6 +119,7 @@
               }
             }
             context.putImageData(imageData, 0, 0 );
+            context.drawImage(image, 520, 0);
 
 
             // requestAnimationFrame(function() {
@@ -127,19 +129,24 @@
 
 
         var image = new Image();
-        image.src = "me.jpg";
+        // image.src = "david.png";
+        // image.src = "chrome.png";
+        // image.src = "me.jpg";
+        image.src = "sanfran.jpg";
 
         var logged = false;
-        
+
+        var palette = new palette();
+
 
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
 
         var startTime = (new Date()).getTime();
-        animate(canvas, context,startTime);
 
         image.onload = function(){
             animate(canvas, context, startTime);
+
         }
 
       </script>
